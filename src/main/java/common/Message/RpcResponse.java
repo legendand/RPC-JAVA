@@ -3,11 +3,15 @@ package common.Message;
 //定义返回信息格式RpcResponse(类似http格式)
 
 import common.pojo.StatusCode;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 public class RpcResponse implements Serializable {//实现Serializable是为了序列化
@@ -15,6 +19,8 @@ public class RpcResponse implements Serializable {//实现Serializable是为了�
     private int code;
     //状态信息
     private String message;
+    //更新：加入传输数据的类型，以便在自定义序列化器中解析
+    private Class<?> dataType;
     //具体数据
     private Object data;
     //构造成功信息

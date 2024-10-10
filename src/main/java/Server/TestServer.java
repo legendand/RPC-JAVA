@@ -10,7 +10,7 @@ public class TestServer {
     public static void main(String[] args) {
         UserServiceImpl userService = new UserServiceImpl();
 
-        ServiceProvider serviceProvider = new ServiceProvider();
+        ServiceProvider serviceProvider = new ServiceProvider("127.0.0.1",9999);
         serviceProvider.providerServiceInterface(userService);
 
         RpcServer rpcServer = new NettyRPCRPCServer(serviceProvider);
